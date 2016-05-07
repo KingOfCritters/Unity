@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{95D50A5D-05FA-41FB-4396-986C36AC7B4E}") = "King of Critters", "Assembly-CSharp.csproj", "{DB9D41D1-D0F8-6A71-5E03-7507D82A20EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB9D41D1-D0F8-6A71-5E03-7507D82A20EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB9D41D1-D0F8-6A71-5E03-7507D82A20EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB9D41D1-D0F8-6A71-5E03-7507D82A20EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB9D41D1-D0F8-6A71-5E03-7507D82A20EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
