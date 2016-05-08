@@ -4,9 +4,12 @@ using System.Collections;
 public class PickUpScript : MonoBehaviour {
 
     public Rigidbody move;
+	public SphereCollider sphereCollider;
+
+	private float speed = 1;
 
     void Start () {
-		InvokeRepeating("Move", Random.Range(0,5) , 1);
+		InvokeRepeating("Move", 0 , 1); // repeats the Move() method every 1 second, and starts at 0 seconds(as soon as script starts)
     }
 
 	// Update is called once per frame
@@ -16,19 +19,31 @@ public class PickUpScript : MonoBehaviour {
 
     void Move()
     {
-		move.velocity = Random.insideUnitSphere * 5;
+		move.velocity = Random.insideUnitSphere * speed; // random direction.
     }
 
-	void OnCollisionEnter (Collision other) {
+	void OnCollisionEnter (Collision collision) {
 		Debug.Log ("hit");
-		if (other.gameObject.CompareTag ("weapon")) {
-			other.gameObject.transform.parent = transform;
-			other.gameObject.tag = "attatched";
-			other.gameObject.transform.localPosition = new Vector3 (0, 0, 0);
-			//gameObject.GetComponent<Collider> ().bounds.Expand (1);
-			Debug.Log (other.gameObject.tag);
+		if (collision.gameObject.CompareTag ("weapon")) {
+			collision.gameObject.transform.parent = transform;
+			collision.gameObject.tag = "attatched"; 
+			sphereCollider.radius += .08f;
+
+			Debug.Log (collision.gameObject.tag);
+
+			move.mass++; // make rigidbody heavier 
+			speed++; // make it faster for the Move() method;
+
+			//collision.gameObject.transform.localPosition = CheckRadius(collision); // attatches thing at checkradius() distance.
+
 
 		
 		}
+	}
+
+
+	Vector3 CheckRadius(Collision other)
+	{
+		return other.contacts [1].point;
 	}
 }
